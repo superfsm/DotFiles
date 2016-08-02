@@ -9,6 +9,8 @@ export PATH="/usr/local/mysql/bin:~/arcanist/arcanist/bin:$PATH"
 
 alias geany='subl'
 alias rrr='rsync -avz --progress --exclude=.pants.d/ --exclude=dist/pipeline.pex /houzz/c2dw/ frank@hdwu01.hz:/home/frank/c2dw'
+alias uuu='./pants binary bin:undo'
+alias ppp='./pants binary bin:pipeline'
 
 gg()
 {
