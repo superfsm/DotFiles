@@ -1,6 +1,7 @@
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
-export PATH="/usr/local/mysql/bin:~/arcanist/arcanist/bin:$PATH"
-
+export PATH="/usr/local/mysql/bin:/Users/houzz/arcanist/arcanist/bin:$PATH"
+export PATH="/Users/houzz/Library/Android/sdk/platform-tools:$PATH"
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='subl -w'
 # else
