@@ -112,7 +112,7 @@ verifyapp(){
 # # ssh -i ~/.ssh/hadoop_rsa hadoop@hdwu01.hz "scp -i ~/.ssh/hadoop_rsa ~/tmp/franks_file hadoop@hdbs:~/franks_file"
 # # ssh -i ~/.ssh/hadoop_rsa hadoop@hdwu01.hz "ssh -i ~/.ssh/hadoop_rsa hadoop@hdbs 'rm /home/hadoop/frank/*'"
 # # ssh -i ~/.ssh/hadoop_rsa hadoop@hdwu01.hz "ssh -i ~/.ssh/hadoop_rsa hadoop@hdbs 'hostname && /var/pyenv/rdb/bin/python /home/hadoop/franks_file FollowersRdbData'"
-}
+# }
 
 # zzz()
 # {
