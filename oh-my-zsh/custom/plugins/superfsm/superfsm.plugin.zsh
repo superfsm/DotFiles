@@ -37,7 +37,7 @@ alias ppp='./pants binary bin:pipeline'
 alias pppH="sudo su -c 'pipeline TaskHourFill --task ad_event_dedup_job --hour 2017-02-08T23' hadoop"
 alias pppB="sudo su -c 'pipeline TaskBackFill --task ad_event_dedup_job --hour 2017-02-08T23' hadoop"
 
-alias sss='ssh data-util.hzd'
+alias w0='ssh data-util.hzd'
 alias w1='ssh 10.4.0.198.hzd'
 alias w2='ssh 10.4.1.224.hzd'
 alias w3='ssh 10.4.3.193.hzd'
@@ -46,7 +46,7 @@ alias hls='hdfs dfs -ls'
 
 check()
 {
-	mysql -u dashy -h luigi-db.data.houzz.net -pdashy595 luigi -e "select * from houzz_task_run_times where task='$1'"
+	mysql -u dashy -h luigi-db.data.houzz.net -pdashy595 luigi -e "select * from houzz_task_run_times where task='$1' order by data_hour"
 }
 
 gg()
