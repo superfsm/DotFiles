@@ -5,10 +5,11 @@ PATH="/Users/houzz/Library/Android/sdk:$PATH"
 PATH="/Users/houzz/Library/dex2jar-2.0:$PATH"
 PATH="/Users/houzz/Library/androguard:$PATH"
 PATH="/usr/local/mysql/lib:$PATH"
+PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 export WORKON_HOME=~/venvs
 export IMPALA_HOST=True
-export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+# export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 source /usr/local/bin/virtualenvwrapper.sh
 
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
@@ -40,7 +41,7 @@ alias pppB="sudo su -c 'pipeline TaskBackFill --task ad_event_dedup_job --hour 2
 alias w0='ssh data-util.hzd'
 alias w1='ssh 10.4.0.198.hzd'
 alias w2='ssh 10.4.1.224.hzd'
-alias w3='ssh 10.4.3.193.hzd'
+alias wt='ssh tensorflow-8b32a11e.hzd'
 
 alias hls='hdfs dfs -ls'
 
