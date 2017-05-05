@@ -9,7 +9,14 @@ PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 export WORKON_HOME=~/venvs
 export IMPALA_HOST=True
+PATH=${CUDA_HOME}/bin:${PATH}
+export PATH
+
 # export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+
+export CUDA_HOME=/usr/local/cuda
+export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
+
 source /usr/local/bin/virtualenvwrapper.sh
 
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
