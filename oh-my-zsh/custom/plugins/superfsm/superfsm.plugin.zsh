@@ -7,7 +7,6 @@ PATH="/Users/houzz/Library/androguard:$PATH"
 PATH="/usr/local/mysql/lib:$PATH"
 PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
-export WORKON_HOME=~/venvs
 export IMPALA_HOST=True
 PATH=${CUDA_HOME}/bin:${PATH}
 export PATH
@@ -48,7 +47,7 @@ alias pppB="sudo su -c 'pipeline TaskBackFill --task ad_event_dedup_job --hour 2
 alias w0='ssh data-util.hzd'
 alias w1='ssh 10.4.0.198.hzd'
 alias w2='ssh 10.4.1.224.hzd'
-alias wt='ssh tensorflow-8b32a11e.hzd'
+alias wt='ssh 10.4.2.121.hzd'
 
 alias hls='hdfs dfs -ls'
 
