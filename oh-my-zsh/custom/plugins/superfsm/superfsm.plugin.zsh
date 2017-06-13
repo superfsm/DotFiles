@@ -41,8 +41,7 @@ alias rrr='rsync -avz --progress --exclude=.pants.d/ --exclude=dist/pipeline.pex
 
 alias uuu='./pants binary bin:undo'
 alias ppp='./pants binary bin:pipeline'
-alias pppH="sudo su -c 'pipeline TaskHourFill --task ad_event_dedup_job --hour 2017-02-08T23' hadoop"
-alias pppB="sudo su -c 'pipeline TaskBackFill --task ad_event_dedup_job --hour 2017-02-08T23' hadoop"
+alias pps='./pants binary bin:pipeline && bash ./script/pex_to_zip.sh /tmp/frank_deps.zip'
 
 alias w0='ssh data-util.hzd'
 alias w1='ssh 10.4.0.198.hzd'
