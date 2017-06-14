@@ -39,6 +39,7 @@ alias geany='subl'
 alias rrr='rsync -avz --progress --exclude=.pants.d/ --exclude=dist/pipeline.pex /houzz/c2dw/ frank@data-util.hzd:/home/frank/c2dw'
 # alias rrr2='rsync -avz --progress --exclude=.pants.d/ --exclude=dist/pipeline.pex /houzz/c2dw/ frank@hdwu01.hz:/home/frank/c2dw'
 
+alias bbb='./pants binary bin:adwords_mgmt'
 alias uuu='./pants binary bin:undo'
 alias ppp='./pants binary bin:pipeline'
 alias pps='./pants binary bin:pipeline && bash ./script/pex_to_zip.sh /tmp/frank_deps.zip'
