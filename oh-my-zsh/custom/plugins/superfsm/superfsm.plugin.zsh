@@ -53,7 +53,7 @@ alias hls='hdfs dfs -ls'
 
 check()
 {
-	mysql -u dashy -h luigi-db.data.houzz.net -pdashy595 luigi -e "select * from houzz_task_run_times where task='$1' order by data_hour, run_start limit 30"
+	mysql -u dashy -h luigi-db.data.houzz.net -pdashy595 luigi -e "select * from houzz_task_run_times where task='$1' order by data_hour DESC, run_start DESC limit 30"
 }
 
 gg()
