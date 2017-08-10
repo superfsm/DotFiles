@@ -56,6 +56,16 @@ check()
 	mysql -u dashy -h luigi-db.data.houzz.net -pdashy595 luigi -e "select * from houzz_task_run_times where task='$1' order by data_hour DESC, run_start DESC limit 30"
 }
 
+up()
+{
+	impala -q "SELECT * FROM (SELECT * FROM dm.houzz_sem_bids WHERE keyword_id = $1 ORDER BY dt DESC limit 10) AS tbl ORDER BY dt"
+}
+
+down()
+{
+	impala -q "SELECT * FROM (SELECT bids, dt FROM dm.keyword_structure_snapshot WHERE kw_id = 28039151022 AND campaign NOT LIKE 'trial%' AND account_name='Houzz_SEM' ORDER BY dt DESC LIMIT 10) AS limited ORDER BY dt"
+}
+
 gg()
 {
 grep -RiIs "$1" .
