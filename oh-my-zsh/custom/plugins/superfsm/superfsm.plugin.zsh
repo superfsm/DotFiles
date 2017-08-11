@@ -12,6 +12,7 @@ PATH=${CUDA_HOME}/bin:${PATH}
 export PATH
 
 # export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+export PYTHONPATH="/Users/houzz/houzz/c2/python:$PYTHONPATH"
 
 export CUDA_HOME=/usr/local/cuda
 export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
@@ -63,7 +64,7 @@ up()
 
 down()
 {
-	impala -q "SELECT * FROM (SELECT bids, dt FROM dm.keyword_structure_snapshot WHERE kw_id = 28039151022 AND campaign NOT LIKE 'trial%' AND account_name='Houzz_SEM' ORDER BY dt DESC LIMIT 10) AS limited ORDER BY dt"
+	impala -q "SELECT * FROM (SELECT bids, dt FROM dm.keyword_structure_snapshot WHERE kw_id = $1 AND campaign NOT LIKE 'trial%' AND account_name='Houzz_SEM' ORDER BY dt DESC LIMIT 10) AS limited ORDER BY dt"
 }
 
 gg()
