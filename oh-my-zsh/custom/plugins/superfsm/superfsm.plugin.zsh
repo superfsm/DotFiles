@@ -37,7 +37,7 @@ venv_cd () {
 alias cd="venv_cd"
 alias geany='subl'
 
-alias rrr='rsync -avz --progress --exclude=.pants.d/ --exclude=dist/pipeline.pex /houzz/c2dw/ frank@data-util.hzd:/home/frank/c2dw'
+alias rrr='rsync -avz --progress --exclude=.pants.d/ --exclude=.cache/ --exclude=dist/ /houzz/c2dw/ frank@data-util.hzd:/home/frank/c2dw'
 # alias rrr2='rsync -avz --progress --exclude=.pants.d/ --exclude=dist/pipeline.pex /houzz/c2dw/ frank@hdwu01.hz:/home/frank/c2dw'
 
 alias bbb='./pants binary bin:adwords_mgmt'
