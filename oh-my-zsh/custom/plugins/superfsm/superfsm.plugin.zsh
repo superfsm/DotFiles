@@ -50,7 +50,9 @@ alias w1='ssh 10.4.0.198.hzd'
 alias w2='ssh 10.4.1.224.hzd'
 alias wt='ssh 10.4.2.121.hzd'
 
-alias hls='hdfs dfs -ls'
+alias hls='snakebite ls'
+alias hcat='snakebite cat'
+alias pyspark='/home/hadoop/spark-2.1.1-bin-hadoop2.6/bin/pyspark'
 
 check()
 {
