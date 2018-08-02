@@ -37,18 +37,17 @@ venv_cd () {
 alias cd="venv_cd"
 alias geany='subl'
 
-alias rrr='rsync -avz --progress --exclude=.pants.d/ --exclude=.cache/ --exclude=dist/ /houzz/c2dw/ frank@data-util.hzd:/home/frank/c2dw'
-# alias rrr2='rsync -avz --progress --exclude=.pants.d/ --exclude=dist/pipeline.pex /houzz/c2dw/ frank@hdwu01.hz:/home/frank/c2dw'
+alias ddd='rsync -avz --progress --exclude=.pants.d/ --exclude=luigi.cfg --exclude=.cache/ --exclude=dist/ /houzz/c2dw/ frank@data-util.hzd:/home/frank/c2dw'
+alias rrr='rsync -avz --progress --exclude=.pants.d/ --exclude=luigi.cfg --exclude=.cache/ --exclude=dist/ /houzz/c2dw/ frank@r-data-util.hzd:/home/frank/c2dw'
 
 alias bbb='./pants binary bin:adwords_mgmt'
+alias ccc='./pants binary bin:bing_mgmt'
 alias uuu='./pants binary bin:undo'
 alias ppp='./pants binary bin:pipeline'
 alias pps='./pants binary bin:pipeline && bash ./script/pex_to_zip.sh /tmp/frank_deps.zip'
 
 alias w0='ssh data-util.hzd'
-alias w1='ssh 10.4.0.198.hzd'
-alias w2='ssh 10.4.1.224.hzd'
-alias wt='ssh 10.4.2.121.hzd'
+alias w1='ssh r-data-util.hzd'
 
 alias hls='snakebite ls'
 alias hcat='snakebite cat'
