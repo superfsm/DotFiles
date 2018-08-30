@@ -7,7 +7,7 @@ PATH="/Users/houzz/Library/androguard:$PATH"
 PATH="/usr/local/mysql/lib:$PATH"
 PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
-export IMPALA_HOST=True
+# export IMPALA_HOST=True
 PATH=${CUDA_HOME}/bin:${PATH}
 export PATH
 
