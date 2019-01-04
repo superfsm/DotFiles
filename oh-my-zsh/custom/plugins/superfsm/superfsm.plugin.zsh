@@ -6,6 +6,7 @@ PATH="/Users/houzz/Library/dex2jar-2.0:$PATH"
 PATH="/Users/houzz/Library/androguard:$PATH"
 PATH="/usr/local/mysql/lib:$PATH"
 PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
+PATH="/Library/TeX/texbin:$PATH"
 
 # export IMPALA_HOST=True
 PATH=${CUDA_HOME}/bin:${PATH}
