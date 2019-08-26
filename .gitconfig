@@ -1,6 +1,6 @@
 # This is Git's per-user configuration file.
 [user]
-	name = Shaoming Feng
+	name = frank
 	email = frank@houzz.com
 [push]
 	default = upstream
@@ -24,6 +24,10 @@
 	process = git-lfs filter-process
 	required = true
 [merge "ours"]
-	driver = true
+	driver = truei
 [pager]
 	branch = false
+[credential]
+	helper = osxkeychain
+[fetch]
+	prune = true

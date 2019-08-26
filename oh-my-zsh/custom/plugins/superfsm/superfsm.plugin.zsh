@@ -47,7 +47,7 @@ alias uuu='./pants binary bin:undo'
 alias ppp='./pants binary bin:pipeline'
 alias pps='./pants binary bin:pipeline && bash ./script/pex_to_zip.sh /tmp/frank_deps.zip'
 
-alias w0='ssh data-util.hzd'
+alias w0='ssh util.hzd'
 alias w1='ssh r-data-util.hzd'
 
 alias hls='snakebite ls'
