@@ -38,17 +38,15 @@ venv_cd () {
 alias cd="venv_cd"
 alias geany='subl'
 
-alias ddd='rsync -avz --progress --exclude=.pants.d/ --exclude=luigi.cfg --exclude=.cache/ --exclude=dist/ /houzz/c2dw/ frank@data-util.hzd:/home/frank/c2dw'
-alias rrr='rsync -avz --progress --exclude=.pants.d/ --exclude=luigi.cfg --exclude=.cache/ --exclude=dist/ /houzz/c2dw/ frank@r-data-util.hzd:/home/frank/c2dw'
+alias rrr='rsync -avz --progress --exclude=.pants.d/ --exclude=luigi.cfg --exclude=.cache/ --exclude=dist/ /houzz/c2dw/ frank@util.hzd:/home/frank/workspace/c2dw'
 
 alias bbb='./pants binary bin:adwords_mgmt'
 alias ccc='./pants binary bin:bing_mgmt'
-alias uuu='./pants binary bin:undo'
-alias ppp='./pants binary bin:pipeline'
+alias uuu='sudo -su hadoop $(readlink -f pants) binary bin:undo'
+alias ppp='sudo -su hadoop $(readlink -f pants) binary bin:pipeline'
 alias pps='./pants binary bin:pipeline && bash ./script/pex_to_zip.sh /tmp/frank_deps.zip'
 
 alias w0='ssh util.hzd'
-alias w1='ssh r-data-util.hzd'
 
 alias hls='snakebite ls'
 alias hcat='snakebite cat'
