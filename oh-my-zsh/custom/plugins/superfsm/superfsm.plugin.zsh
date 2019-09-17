@@ -38,12 +38,12 @@ venv_cd () {
 alias cd="venv_cd"
 alias geany='subl'
 
-alias rrr='rsync -avz --progress --exclude=.pants.d/ --exclude=luigi.cfg --exclude=.cache/ --exclude=dist/ /houzz/c2dw/ frank@util.hzd:/home/frank/workspace/c2dw'
+alias rrr='rsync -avz --progress --exclude=.pants.d/ --exclude=luigi.cfg --exclude=.cache/ --exclude=dist/ /houzz/c2dw/ frank@util.hzd:/home/frank/c2dw'
 
-alias bbb='./pants binary bin:adwords_mgmt'
-alias ccc='./pants binary bin:bing_mgmt'
+alias bbb='sudo -su hadoop $(readlink -f pants) binary bin:adwords_mgmt'
 alias uuu='sudo -su hadoop $(readlink -f pants) binary bin:undo'
 alias ppp='sudo -su hadoop $(readlink -f pants) binary bin:pipeline'
+alias ttt='sudo -su hadoop $(readlink -f pants) test test/python:all'
 alias pps='./pants binary bin:pipeline && bash ./script/pex_to_zip.sh /tmp/frank_deps.zip'
 
 alias w0='ssh util.hzd'
@@ -76,77 +76,3 @@ ff()
 {
 find . -name "$1"
 }
-
-apkunpack(){
-	if [ -z $1 ]; then
-		echo "Missing app name!"
-		return
-	fi
-	DIR=~/workspace/debug-$1
-	mkdir $DIR
-	cd $DIR/
-	cp ~/workspace/$1/app/build/outputs/apk/app-debug.apk ./
-	apktool d -f $DIR/app-debug.apk
-}
-
-apkpack(){
-	if [ -z $1 ]; then
-		echo "Missing app folder!"
-		return
-	fi
-	apktool b $1
-	if [ $? -ne 0 ]; then
-		return
-	fi
-	apk=$(ls $1/dist/*.apk)
-	signapp $apk
-	if [ $? -ne 0 ]; then
-		return
-	fi
-	echo "apk: $apk"
-	package=$(aapt dump badging $apk | grep -Eo "package: name=\'(.*?)\' " | cut -d\' -f2)
-	echo "package: $package"
-	adb uninstall $package
-	adb install $apk
-	adb shell monkey -p $package -c android.intent.category.LAUNCHER 1
-}
-
-signapp(){
-	jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ~/.android/debug.keystore $1 androiddebugkey -storepass android -keypass android
-}
-
-verifyapp(){
-	jarsigner -verify -verbose -certs $1
-}
-
-# sss()
-# {
-# rrr
-# echo '--------------'
-# ssh hdwu01.hz "hostname"
-# ssh hdwu01.hz "cd ~/c2dw/ && ./pants binary bin:pipeline"
-# scp hdwu01.hz:/home/frank/c2dw/dist/pipeline.pex ~/tmp/pipeline.pex
-# scp -i ~/.ssh/hadoop_rsa ~/tmp/pipeline.pex hadoop@luigi-worker-bc50e513.hzd:~/pipeline/mypipeline.pex
-
-# # ssh -i ~/.ssh/hadoop_rsa hadoop@hdwu01.hz "scp -i ~/.ssh/hadoop_rsa ~/tmp/franks_file hadoop@hdbs:~/franks_file"
-# # scp -i ~/.ssh/hadoop_rsa ~/houzz/c2dw/dist/pipeline.pex hadoop@luigi-worker-bc50e513.hzd:~/pipeline/pipeline.pex
-# # ssh -i ~/.ssh/hadoop_rsa hadoop@hdwu01.hz "scp -i ~/.ssh/hadoop_rsa ~/tmp/franks_file hadoop@hdbs:~/franks_file"
-# # ssh -i ~/.ssh/hadoop_rsa hadoop@hdwu01.hz "ssh -i ~/.ssh/hadoop_rsa hadoop@hdbs 'rm /home/hadoop/frank/*'"
-# # ssh -i ~/.ssh/hadoop_rsa hadoop@hdwu01.hz "ssh -i ~/.ssh/hadoop_rsa hadoop@hdbs 'hostname && /var/pyenv/rdb/bin/python /home/hadoop/franks_file FollowersRdbData'"
-# }
-
-# zzz()
-# {
-# scp ~/workspace/aws/diff.sh data-util.hzd:~/workspace/
-# scp ~/workspace/aws/compare.py data-util.hzd:~/workspace/
-# ssh data-util.hzd "cd ~/workspace/ && /bin/bash ~/workspace/diff.sh"
-# }
-
-# ttt()
-# {
-# scp /houzz/c2dw/script/impala_schema_export/impala_table_looper.sh hdwu01.hz:~/tmp/impala_table_looper.sh
-# scp /houzz/c2dw/script/impala_schema_export/impala_datatype.txt hdwu01.hz:~/tmp/impala_datatype.txt
-# ssh hdwu01.hz "cd /home/frank/tmp && /bin/bash ~/tmp/impala_table_looper.sh"
-# scp hdwu01.hz:~/tmp/create_table.sql ./
-# scp hdwu01.hz:~/tmp/create_database.sql ./
-# }
