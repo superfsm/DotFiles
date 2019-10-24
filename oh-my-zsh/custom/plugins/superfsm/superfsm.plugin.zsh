@@ -44,7 +44,7 @@ alias bbb='sudo -su hadoop $(readlink -f pants) binary bin:adwords_mgmt'
 alias uuu='sudo -su hadoop $(readlink -f pants) binary bin:undo'
 alias ppp='sudo -su hadoop $(readlink -f pants) binary bin:pipeline'
 alias ttt='sudo -su hadoop $(readlink -f pants) test test/python:all'
-alias pps='./pants binary bin:pipeline && bash ./script/pex_to_zip.sh /tmp/frank_deps.zip'
+alias pps='sudo -su hadoop $(readlink -f pants) binary bin:pipeline && bash ./script/pex_to_zip.sh /tmp/frank_deps.zip'
 
 alias w0='ssh util.hzd'
 
